@@ -1,0 +1,6 @@
+{
+  "name": "Jlab",
+  "description": "Offline personal digital life operating system organizing tasks, projects, plans, notes, knowledge, and focus.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
