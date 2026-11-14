@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/jlab-repository-banner.svg" alt="JLab — Your private digital workspace, branded repository cover" width="100%" />
+<img src="assets/jlab-android-showcase.png" alt="JLab — Your private digital workspace, branded repository cover" width="100%" />
 
 <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="JLab actual Android launcher icon" width="88" />
 
@@ -31,9 +31,9 @@ Instead of moving between scattered notes, task lists and planning tools, JLab b
 
 ## Visual overview
 
-<img src="assets/jlab-workspaces.svg" alt="Illustrative overview of JLab projects, notes, files, planning and insights modules" width="100%" />
+<img src="assets/jlab-real-screens-showcase.png" alt="JLab real app screens showcase: Home, Workspace, Calendar, Insights, Control Center and Projects" width="100%" />
 
-*The illustrations above are original repository branding, not screenshots of the running Android app. The launcher icon is loaded directly from the existing Android project. Actual in-app screenshots can be added later without removing any assets.*
+*The showcase panels above are based on real JLab app screenshots supplied by the developer. The launcher icon is loaded directly from the existing Android project. Existing SVG graphics remain available in the assets folder.*
 
 ## What you can do
 
