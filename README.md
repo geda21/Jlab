@@ -1,5 +1,13 @@
 <div align="center">
 
+<img src="assets/jlab-repository-banner.svg" alt="JLab — Your private digital workspace, branded repository cover" width="100%" />
+
+<img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" alt="JLab actual Android launcher icon" width="88" />
+
+</div>
+
+<div align="center">
+
 # JLab — Your Private Digital Workspace
 
 **One Android app for projects, tasks, notes, plans, knowledge and personal progress.**
@@ -20,6 +28,12 @@
 **Capture → Organize → Plan → Execute → Track → Review**
 
 Instead of moving between scattered notes, task lists and planning tools, JLab brings everyday workflows into a unified, private workspace.
+
+## Visual overview
+
+<img src="assets/jlab-workspaces.svg" alt="Illustrative overview of JLab projects, notes, files, planning and insights modules" width="100%" />
+
+*The illustrations above are original repository branding, not screenshots of the running Android app. The launcher icon is loaded directly from the existing Android project. Actual in-app screenshots can be added later without removing any assets.*
 
 ## What you can do
 
