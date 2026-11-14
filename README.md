@@ -1,96 +1,112 @@
-# Jlab — Offline Personal Digital Life Operating System
+<div align="center">
 
-> **"My entire organized digital life inside one private application."**
+# JLab — Your Private Digital Workspace
 
-Jlab is a 100% offline, local-first Android operating system designed to organize your entire digital life in one cohesive, distraction-free environment.
+**One Android app for projects, tasks, notes, plans, knowledge and personal progress.**
 
----
+![Android](https://img.shields.io/badge/Android-Kotlin-6B55D8?style=for-the-badge&logo=android&logoColor=white)
+![Compose](https://img.shields.io/badge/UI-Jetpack_Compose-2276D0?style=for-the-badge)
+![Offline](https://img.shields.io/badge/Data-Local_First-219578?style=for-the-badge)
+![Creator](https://img.shields.io/badge/Creator-Geda_Taye-263447?style=for-the-badge)
 
-## Philosophy: CAPTURE → ORGANIZE → PLAN → EXECUTE → TRACK → REVIEW
-
-Jlab unifies:
-- **Task Management**: Prioritized tasks, quick todos, subtasks, repeat schedules, deadlines.
-- **Projects**: Roadmaps, objectives, progress meters, linked tasks, decision records.
-- **Plans & Locked Plans**: Structured daily, weekly, and monthly commitments. Includes **Locked Plans** with an explicit "UNLOCK" safety workflow to build iron discipline without accidental changes.
-- **Structured Notes**: Category-driven notes with automatic autosave and zero data loss.
-- **Information Vault**: Permanent reference, technical documentation, knowledge records.
-- **Prompt Library**: Template engine supporting variables like `{{PRODUCT_NAME}}`, copy-to-clipboard, and share.
-- **Business Workspace**: Ventures, value propositions, revenue models, product/service catalog.
-- **Learning System**: Skills, courses, books, and study session loggers.
-- **Social Content Pipeline**: Content planning across YouTube, LinkedIn, X, TikTok, and scripts.
-- **Screenshot & File Vault**: Private on-device document and screenshot vault with system photo picker.
-- **Local Calendar / Planner**: Completely offline agenda view for tasks, plans, and deadlines.
-- **Focus Timer & Time Tracking**: Customizable sprint timers (15m, 25m, 45m, 60m) and duration logging.
-- **Habits & Routines**: Consistency tracking with daily completion toggles.
-- **Long-Term Goals**: Personal, financial, and technical targets with milestone progress.
-- **Daily & Weekly Reviews**: Reflections on what went well and next priorities.
-- **Global Search**: Instant offline query across all 11+ entity types.
-- **Offline Backup & Restore**: Full SQLite database and attachment packaging via Android SAF to portable `.zip` archives.
-- **Privacy & Security**: Biometric / device lock gate and optional `FLAG_SECURE` screenshot prevention.
+</div>
 
 ---
 
-## Architecture
+## A workspace built around how you actually work
 
-- **Language**: Kotlin 100%
-- **UI Toolkit**: Jetpack Compose (Material 3)
-- **Architecture Pattern**: MVVM + Repository Pattern
-- **Local Database**: Room Database (SQLite) with reactive `Flow` observation
-- **Preferences**: Jetpack DataStore Preferences
-- **Alarms & Reminders**: Android `AlarmManager` with exact wakeup and `BroadcastReceiver` handlers
-- **Notifications**: Notification channels with direct "Complete" and "Snooze 10m" action buttons
-- **Network / Internet**: **NONE** (No internet permission requested or required)
-- **External Servers / Analytics**: **NONE**
+**JLab** combines productivity, personal organization and knowledge management into one native Android application. It is designed around a practical cycle:
 
----
+**Capture → Organize → Plan → Execute → Track → Review**
 
-## Project Structure
+Instead of moving between scattered notes, task lists and planning tools, JLab brings everyday workflows into a unified, private workspace.
 
-```
-com.example/
-├── JlabApplication.kt             # Application initialization & locator
-├── MainActivity.kt                # Root activity, Edge-to-Edge, navigation host
-├── data/
-│   ├── local/
-│   │   ├── JlabDatabase.kt        # Room database definition
-│   │   ├── JlabPreferences.kt     # DataStore preferences
-│   │   ├── dao/JlabDao.kt         # Comprehensive Room DAO
-│   │   └── entity/Entities.kt     # Domain entities
-│   ├── model/Enums.kt             # Domain enums
-│   └── repository/JlabRepository.kt # Central repository
-├── receiver/
-│   ├── ReminderReceiver.kt        # AlarmManager notification publisher
-│   ├── NotificationActionReceiver.kt # Notification action buttons handler
-│   └── BootReceiver.kt            # Reschedules alarms on device reboot
-├── service/
-│   ├── NotificationHelper.kt      # Notification channels
-│   ├── ReminderScheduler.kt       # AlarmManager scheduler
-│   └── BackupManager.kt           # Offline ZIP backup and restore
-└── ui/
-    ├── components/                # Reusable Compose components
-    ├── screens/                   # Distinct modular screens
-    ├── theme/                     # Jlab M3 Indigo / Cyan palette
-    └── viewmodel/MainViewModel.kt # Central reactive ViewModel
+## What you can do
+
+| Workspace | Capabilities reflected in this project |
+|---|---|
+| **Projects & tasks** | Create project workspaces, manage tasks, priorities, progress and related details. |
+| **Notes & rich text** | Write and edit notes, organize information and work with formatting. |
+| **Files Vault** | Keep attachments, documents and images in a dedicated local workspace. |
+| **Plans, goals & habits** | Manage personal commitments, goals, routines and progress. |
+| **Calendar & reminders** | Plan dates and use local Android notifications. |
+| **Knowledge & prompt library** | Organize reference material and reusable prompts. |
+| **Business & learning** | Track business ideas, learning plans, courses and study notes. |
+| **Social content** | Organize content ideas and production tasks. |
+| **Insights & reviews** | Look at progress and reflect on completed work. |
+| **Settings & personalization** | Customize parts of the workspace and local preferences. |
+| **Backup & restore** | Local export and restoration tools implemented in the Android project. |
+
+*Available features and behavior can differ between the APK files included in this repository; the source tree is the reference for the currently committed implementation.*
+
+## Application structure
+
+The repository contains a substantial Android source tree, including:
+
+```text
+app/src/main/
+├── AndroidManifest.xml
+└── java/com/example/
+    ├── MainActivity.kt
+    ├── JlabApplication.kt
+    ├── data/
+    │   ├── local/               # Room database, DAO, entities, preferences
+    │   └── repository/          # Data access and business logic
+    ├── receiver/                # Boot, reminder and notification actions
+    ├── service/                 # Backup, notifications and reminder scheduling
+    └── ui/
+        ├── components/          # Reusable Compose UI
+        ├── screens/             # Projects, notes, tasks, files, learning, etc.
+        └── theme/               # App design system
 ```
 
----
+## Engineering
 
-## Permissions Used
+| Layer | Technology |
+|---|---|
+| Language | Kotlin |
+| User interface | Jetpack Compose / Material 3 |
+| Local persistence | Room / SQLite |
+| Preferences | Android DataStore |
+| Notifications | Android notification channels, broadcasts and local scheduling |
+| Data backup | On-device ZIP-based backup and restore implementation |
+| Design approach | Mobile-first, offline-oriented, with reusable screens and components |
 
-- `android.permission.POST_NOTIFICATIONS`: Android 13+ local reminder notifications.
-- `android.permission.RECEIVE_BOOT_COMPLETED`: Reschedule active alarms on device restart.
-- `android.permission.SCHEDULE_EXACT_ALARM` & `android.permission.USE_EXACT_ALARM`: Punctual alarm delivery.
-- `android.permission.VIBRATE`: Tactile feedback for alarms and focus timer completion.
-- **Zero Internet Permission**: The app operates with zero network privileges.
+JLab is designed to keep core information on the device rather than requiring an online account to organize daily work. Review `AndroidManifest.xml` and each build configuration for the exact permissions of your chosen APK.
 
----
+## Build from source
 
-## Build & APK Location
+For a compatible Java/Android SDK and Gradle environment:
 
-To build the debug APK:
 ```bash
-gradle :app:assembleDebug
+./gradlew :app:assembleDebug
 ```
 
-- Primary APK output: `app/build/outputs/apk/debug/app-debug.apk`
-- Root copy: `Jlab-debug.apk`
+Then look in `app/build/outputs/apk/debug/`. Before distributing a build, check the manifest, application ID, signing configuration and Android compatibility.
+
+### APK files already in this repository
+
+- `JLab_v3.apk`
+- `Jlab.apk`
+- `Jlab-debug.apk`
+- `Jlab_v2_source.zip`
+
+These existing artifacts are **preserved, not replaced or deleted**. Names are not proof of matching build versions, signatures or release readiness; verify them before installing or sharing.
+
+## Privacy and safety
+
+JLab contains personal notes, projects and files. Keep backups securely, verify the actual source and Android permissions before installing an APK, and avoid sharing exported user data.
+
+## Why I built it
+
+JLab is a personal organizer developed by **Geda Taye**, a self-taught Android and web developer from Ethiopia. It reflects a real need: manage multiple software projects, ideas and daily work from a smartphone without juggling disconnected tools.
+
+Other projects: [NONOX on Google Play](https://play.google.com/store/apps/details?id=com.nonox.app) · [JABAA Shop](https://jabashop.store)
+
+## Connect
+
+[GitHub](https://github.com/geda21) · [LinkedIn](https://www.linkedin.com/in/geda-taye-a60b403ba)
+
+---
+
+**Repository note:** Source code and APKs are provided here as project materials. No open-source license is implied unless a separate license file grants one.
